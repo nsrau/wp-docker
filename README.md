@@ -11,7 +11,7 @@ $ docker-compose up -d
 
 ### php/php.ini
 
-copies the file php.ini into the php folder to the container
+copies the file php.ini into the /php folder to the container
 
 ```php
 file_uploads = On
