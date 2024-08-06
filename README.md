@@ -1,7 +1,7 @@
 # wp-docker
 
 create a wordpress app inside docker
-with mysql and phpmyadmin
+with mysql
 
 ## Usage
 
