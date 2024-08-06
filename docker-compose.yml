@@ -22,18 +22,6 @@ services:
       - wp-docker
     container_name: wp-db
  
-  phpmyadmin:
-    image: phpmyadmin:latest
-    ports:
-      - "8080:80"
-    environment:
-      PMA_HOST: db
-    networks:
-      - wp-docker
-    depends_on:
-      - db
-    container_name: phpmyadmin
- 
   wordpress:
     image: wordpress:latest
     volumes:
