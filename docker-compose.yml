@@ -1,13 +1,13 @@
 version: '3.7'
- 
+
 networks:
   wp-docker:
- 
+
 volumes:
   db_data: {}
- 
+
 services:
- 
+
   db:
     image: mysql:5.7
     volumes:
@@ -21,7 +21,12 @@ services:
     networks:
       - wp-docker
     container_name: wp-db
- 
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'      
+          memory: 256M     
+
   wordpress:
     image: wordpress:latest
     volumes:
@@ -41,3 +46,8 @@ services:
     depends_on:
       - db
     container_name: wp-app
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'      
+          memory: 256M      
