@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 networks:
   wp-docker:
@@ -7,7 +7,6 @@ volumes:
   db_data: {}
 
 services:
-
   db:
     image: mysql:5.7
     volumes:
@@ -24,8 +23,8 @@ services:
     # deploy:
     #   resources:
     #     limits:
-    #       cpus: '0.25'      
-    #       memory: 256M     
+    #       cpus: '0.25'
+    #       memory: 256M
 
   wordpress:
     image: wordpress:latest
@@ -49,5 +48,17 @@ services:
     # deploy:
     #   resources:
     #     limits:
-    #       cpus: '0.25'      
-    #       memory: 256M      
+    #       cpus: '0.25'
+    #       memory: 256M
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+    networks:
+      - wp-docker
+    depends_on:
+      - db
+    container_name: phpmyadmin
