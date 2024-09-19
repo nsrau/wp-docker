@@ -20,13 +20,14 @@ services:
     networks:
       - wp-docker
     container_name: wp-db
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: '0.25'
-    #       memory: 256M
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
 
   wordpress:
+    build: .
     image: wordpress:latest
     volumes:
       - ./php/php.ini:/usr/local/etc/php/conf.d/wp-php.ini
@@ -45,11 +46,11 @@ services:
     depends_on:
       - db
     container_name: wp-app
-    # deploy:
-    #   resources:
-    #     limits:
-    #       cpus: '0.25'
-    #       memory: 256M
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M
 
   phpmyadmin:
     image: phpmyadmin:latest
