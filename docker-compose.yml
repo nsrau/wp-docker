@@ -9,8 +9,6 @@ volumes:
 services:
   db:
     image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
@@ -29,10 +27,6 @@ services:
   wordpress:
     build: .
     image: wordpress:latest
-    volumes:
-      - ./php/php.ini:/usr/local/etc/php/conf.d/wp-php.ini
-      - wp_content_themes:/var/www/html/wp-content/themes
-      - wp_content_plugins:/var/www/html/wp-content/plugins
     ports:
       - "8080:80"
     restart: always
