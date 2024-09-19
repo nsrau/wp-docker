@@ -4,8 +4,8 @@ FROM wordpress:latest
 COPY php/php.ini /usr/local/etc/php/conf.d/wordpress.ini
 
 # Cleanout built-in themes and plugins.
-RUN  rm -R $(ls -1 -d /usr/src/wordpress/wp-content/plugins/*) \
-    && rm -R $(ls -1 -d /usr/src/wordpress/wp-content/themes/*)
+#RUN  rm -R $(ls -1 -d /usr/src/wordpress/wp-content/plugins/*) \
+#    && rm -R $(ls -1 -d /usr/src/wordpress/wp-content/themes/*)
 
 # Copying Themes and Plugins into the wordpress image
 WORKDIR /usr/src/wordpress
