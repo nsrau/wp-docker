@@ -14,3 +14,7 @@ RUN set -eux; \
     cp -s wp-config-docker.php wp-config.php
 COPY wp-content/themes/ ./wp-content/themes
 COPY wp-content/plugins/ ./wp-content/plugins
+
+# Set permissions for wp-content
+RUN chown -R www-data:www-data /usr/src/wordpress/wp-content \
+    && chmod -R 755 /usr/src/wordpress/wp-content
