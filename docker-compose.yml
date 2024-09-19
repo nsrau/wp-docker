@@ -31,8 +31,8 @@ services:
     image: wordpress:latest
     volumes:
       - ./php/php.ini:/usr/local/etc/php/conf.d/wp-php.ini
-      - ./wp-content/plugins:/var/www/html/wp-content/plugins
-      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - wp_content_themes:/var/www/html/wp-content/themes
+      - wp_content_plugins:/var/www/html/wp-content/plugins
     ports:
       - "8080:80"
     restart: always
