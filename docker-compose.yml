@@ -52,14 +52,14 @@ services:
           cpus: '0.25'
           memory: 256M
 
-  phpmyadmin:
-    image: phpmyadmin:latest
+  #phpmyadmin:
+  #  image: phpmyadmin:latest
     #ports:
     #  - "8090:80"
-    environment:
-      PMA_HOST: db
-    networks:
-      - wp-docker
-    depends_on:
-      - db
-    container_name: phpmyadmin
+  #  environment:
+  #    PMA_HOST: db
+  #  networks:
+  #    - wp-docker
+  #  depends_on:
+  #    - db
+  #  container_name: phpmyadmin
