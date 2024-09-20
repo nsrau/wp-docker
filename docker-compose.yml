@@ -33,8 +33,8 @@ services:
       - ./php/php.ini:/usr/local/etc/php/conf.d/wp-php.ini
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
       - ./wp-content/themes:/var/www/html/wp-content/themes
-    ports:
-      - "8080:80"
+    #ports:
+    #  - "8080:80"
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
@@ -54,8 +54,8 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:latest
-    ports:
-      - "8090:80"
+    #ports:
+    #  - "8090:80"
     environment:
       PMA_HOST: db
     networks:
